@@ -4,7 +4,7 @@ let arr = [];
 let foundCorrectNumber = false;
 let life = 3
 let num = Math.floor(Math.random() * 11)
-let wordArray = ['haaaaaaaaaaa', 'tea', 'ceeeeeb']
+let wordArray = ['coffee', 'tea', 'juice', 'water', 'cocktail']
 let one;
 
 while(true) {
