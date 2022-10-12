@@ -21,11 +21,11 @@ console.log("You have 3 life")
 while (!foundCorrectNumber) {
   let guess = prompt('say word: ');
   
-  if(guess === (one.find((val) => {if(val === guess) {return val}}))) {
+  if(guess.toLowerCase() === (one.find((val) => {if(val === guess.toLowerCase()) {return val}}))) {
 
     for(let j = 0; j < one.length; j++) {
-      if(one[j] === guess) {
-        arr[j] = guess
+      if(one[j] === (guess).toLowerCase()) {
+        arr[j] = (guess).toLowerCase()
         console.log(arr);
         delete one[j]
       }
