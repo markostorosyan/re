@@ -7,7 +7,7 @@ let words = ['coffee', 'tea', 'juice', 'water', 'cocktail'];
 let wordLetters = getTheWord();
 
 function getTheWord() {
-  let num = Math.floor(Math.random() * words.length);
+  let num = Math.floor(Math.random() * (words.length + 1));
   if (words[num] !== undefined) {
    return words[num].split("");
   }
