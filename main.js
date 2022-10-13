@@ -2,35 +2,38 @@ const prompt = require('prompt-sync')({sigint: true});
 
 let arr = [];
 let foundCorrectNumber = false;
-let life = 3
-let wordArray = ['coffee', 'tea', 'juice', 'water', 'cocktail']
-let num = Math.floor(Math.random() * (wordArray.length + 1))
-let one;
+let life = 3;
+let words = ['coffee', 'tea', 'juice', 'water', 'cocktail'];
+let wordLetters = getTheWord();
 
-while(true) {
-  if(wordArray[num] !== undefined) {
-      one = wordArray[num].split('')
-      break
+function getTheWord() {
+  let num = Math.floor(Math.random() * words.length);
+  if (words[num] !== undefined) {
+   return words[num].split("");
   }
-  num = Math.floor(Math.random() * (wordArray.length + 1))
 }
 
-let two = one.join('')
-console.log("You have 3 life")
+let theWord = wordLetters.join('');
+for(let i = 0; i < theWord.length; i++) {
+  arr.push('');
+}
+
+console.log(arr);
+console.log("You have 3 life");
 
 while (!foundCorrectNumber) {
-  let guess = prompt('say word: ');
+  let guess = prompt('Guess a letter: ').toLowerCase();
   
-  if(guess.toLowerCase() === (one.find((val) => {if(val === guess.toLowerCase()) {return val}}))) {
+  if(guess === (wordLetters.find((val) => {if(val === guess) {return val}}))) {
 
-    for(let j = 0; j < one.length; j++) {
-      if(one[j] === (guess).toLowerCase()) {
-        arr[j] = (guess).toLowerCase()
+    for(let j = 0; j < wordLetters.length; j++) {
+      if(wordLetters[j] === (guess)) {
+        arr[j] = (guess);
         console.log(arr);
-        delete one[j]
+        delete wordLetters[j];
       }
     }
-    if(two === arr.join('')) {
+    if(theWord === arr.join('')) {
       console.log('you win');
       foundCorrectNumber = true;
     }
@@ -38,7 +41,7 @@ while (!foundCorrectNumber) {
     life = life - 1
     console.log(`You have left ${life} life`)
     if(life === 0) {
-      console.log('You louse :P')
+      console.log('You louse :P');
       foundCorrectNumber = true;
     }
   }
