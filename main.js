@@ -3,8 +3,8 @@ const prompt = require('prompt-sync')({sigint: true});
 let arr = [];
 let foundCorrectNumber = false;
 let life = 3
-let num = Math.floor(Math.random() * 11)
 let wordArray = ['coffee', 'tea', 'juice', 'water', 'cocktail']
+let num = Math.floor(Math.random() * (wordArray.length + 1))
 let one;
 
 while(true) {
@@ -12,7 +12,7 @@ while(true) {
       one = wordArray[num].split('')
       break
   }
-  num = Math.floor(Math.random() * 11)
+  num = Math.floor(Math.random() * (wordArray.length + 1))
 }
 
 let two = one.join('')
